@@ -348,120 +348,193 @@
     <category id="catFunctions" colour="290" custom="PROCEDURE" name="Functions"></category>
     <sep></sep>
     <category name="Library" expanded="true">
-      <category name="Party Worldwide Turnover">
-      <block type="procedures_defreturn" collapsed="true">
-        <mutation>
-          <arg name="Party"></arg>
-        </mutation>
-        <field name="NAME">Party_Worldwide_Turnover</field>
-        <comment pinned="false" h="80" w="160">Describe this function...</comment>
-        <statement name="STACK">
-          <block type="variables_set">
-            <field name="VAR">Party_Worldwide_Turnover</field>
-            <value name="VALUE">
-              <block type="math_number">
-                <field name="NUM">0</field>
-              </block>
-            </value>
-            <next>
-              <block type="controls_forEach">
-                <field name="VAR">i</field>
-                <value name="LIST">
-                  <block type="variables_get">
-                    <field name="VAR">Party</field>
-                  </block>
-                </value>
-                <statement name="DO">
-                  <block type="variables_set">
-                    <field name="VAR">Party_Worldwide_Turnover</field>
-                    <value name="VALUE">
-                      <block type="math_arithmetic">
-                        <field name="OP">ADD</field>
-                        <value name="A">
-                          <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
-                            <field name="NUM">1</field>
-                          </shadow>
-                          <block type="variables_get">
-                            <field name="VAR">Party_Worldwide_Turnover</field>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
-                            <field name="NUM">1</field>
-                          </shadow>
-                          <block type="variables_get">
-                            <field name="VAR">i</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                  </block>
-                </statement>
-              </block>
-            </next>
-          </block>
-        </statement>
-        <value name="RETURN">
-          <block type="variables_get">
-            <field name="VAR">Party_Worldwide_Turnover</field>
-          </block>
-        </value>
-      </block>
+      <category name="Calculations">
+        <block type="procedures_defreturn" collapsed="true">
+          <mutation>
+            <arg name="Party"></arg>
+          </mutation>
+          <field name="NAME">getPartyWorldwideTurnover</field>
+          <comment pinned="false" h="80" w="160">Describe this function...</comment>
+          <statement name="STACK">
+            <block type="variables_set">
+              <field name="VAR">PartyWorldwideTurnover</field>
+              <value name="VALUE">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+              <next>
+                <block type="controls_forEach">
+                  <field name="VAR">i</field>
+                  <value name="LIST">
+                    <block type="variables_get">
+                      <field name="VAR">Party</field>
+                    </block>
+                  </value>
+                  <statement name="DO">
+                    <block type="variables_set">
+                      <field name="VAR">PartyWorldwideTurnover</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic">
+                          <field name="OP">ADD</field>
+                          <value name="A">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="variables_get">
+                              <field name="VAR">PartyWorldwideTurnover</field>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                              <field name="NUM">1</field>
+                            </shadow>
+                            <block type="variables_get">
+                              <field name="VAR">i</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                    </block>
+                  </statement>
+                </block>
+              </next>
+            </block>
+          </statement>
+          <value name="RETURN">
+            <block type="variables_get">
+              <field name="VAR">PartyWorldwideTurnover</field>
+            </block>
+          </value>
+        </block>
+        <block type="procedures_defreturn" collapsed="true">
+          <mutation>
+            <arg name="Party_A"></arg>
+            <arg name="Party_B"></arg>
+          </mutation>
+          <field name="NAME">getCombinedWorldwideTurnover</field>
+          <comment pinned="false" h="80" w="160">Describe this function...</comment>
+          <statement name="STACK">
+            <block type="variables_set">
+              <field name="VAR">CombinedWorldwideTurnover</field>
+              <value name="VALUE">
+                <block type="math_arithmetic">
+                  <field name="OP">ADD</field>
+                  <value name="A">
+                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                      <field name="NUM">1</field>
+                    </shadow>
+                    <block type="procedures_callreturn" inline="true">
+                      <mutation name="getPartyWorldwideTurnover">
+                        <arg name="Party"></arg>
+                      </mutation>
+                      <value name="ARG0">
+                        <block type="variables_get">
+                          <field name="VAR">Party_A</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <value name="B">
+                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number">
+                      <field name="NUM">1</field>
+                    </shadow>
+                    <block type="procedures_callreturn">
+                      <mutation name="getPartyWorldwideTurnover">
+                        <arg name="Party"></arg>
+                      </mutation>
+                      <value name="ARG0">
+                        <block type="variables_get">
+                          <field name="VAR">Party_B</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                </block>
+              </value>
+            </block>
+          </statement>
+          <value name="RETURN">
+            <block type="variables_get">
+              <field name="VAR">CombinedWorldwideTurnover</field>
+            </block>
+          </value>
+        </block>
+        <block type="procedures_callreturn">
+          <mutation name="getPartyWorldwideTurnover">
+            <arg name="Party"></arg>
+          </mutation>
+          <value name="ARG0">
+            <block type="variables_get">
+              <field name="VAR">Party_A_Turnover</field>
+            </block>
+          </value>
+        </block>    
+        <block type="procedures_callreturn">
+          <mutation name="getCombinedWorldwideTurnover">
+            <arg name="Party_A"></arg>
+            <arg name="Party_B"></arg>
+          </mutation>
+          <value name="ARG0">
+            <block type="variables_get">
+              <field name="VAR">Party_A_Turnover</field>
+            </block>
+          </value>
+          <value name="ARG1">
+            <block type="variables_get">
+              <field name="VAR">Party_B_Turnover</field>
+            </block>
+          </value>
+        </block>
       </category>
-      <category name="Combined Worldwide Turnover">
-      <block type="procedures_defreturn" collapsed="true">
-        <mutation>
-          <arg name="Party_A"></arg>
-          <arg name="Party_B"></arg>
-        </mutation>
-        <field name="NAME">Combined_Worldwide_Turnover</field>
-        <comment pinned="false" h="80" w="160">Describe this function...</comment>
-        <statement name="STACK">
-          <block type="variables_set">
-            <field name="VAR">Combined_Worldwide_Turnover</field>
-            <value name="VALUE">
-              <block type="math_arithmetic">
-                <field name="OP">ADD</field>
-                <value name="A">
-                  <shadow type="math_number">
-                    <field name="NUM">1</field>
-                  </shadow>
-                  <block type="procedures_callreturn">
-                    <mutation name="Party_Worldwide_Turnover">
-                      <arg name="Party"></arg>
-                    </mutation>
-                    <value name="ARG0">
-                      <block type="variables_get">
-                        <field name="VAR">Party_A</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-                <value name="B">
-                  <shadow type="math_number">
-                    <field name="NUM">1</field>
-                  </shadow>
-                  <block type="procedures_callreturn">
-                    <mutation name="Party_Worldwide_Turnover">
-                      <arg name="Party"></arg>
-                    </mutation>
-                    <value name="ARG0">
-                      <block type="variables_get">
-                        <field name="VAR">Party_B</field>
-                      </block>
-                    </value>
-                  </block>
-                </value>
-              </block>
-            </value>
-          </block>
-        </statement>
-        <value name="RETURN">
-          <block type="variables_get">
-            <field name="VAR">Combined_Worldwide_Turnover</field>
-          </block>
-        </value>
-      </block>
+
+      <category name="Party Details">
+        <block type="variables_set">
+          <field name="VAR">Party_A_Turnover</field>
+          <value name="VALUE">
+            <block type="lists_create_with" inline="true">
+              <mutation items="3"></mutation>
+              <value name="ADD0">
+                <block type="math_number">
+                  <field name="NUM">10</field>
+                </block>
+              </value>
+              <value name="ADD1">
+                <block type="math_number">
+                  <field name="NUM">20</field>
+                </block>
+              </value>
+              <value name="ADD2">
+                <block type="math_number">
+                  <field name="NUM">30</field>
+                </block>
+              </value>
+            </block>
+          </value>
+        </block>
+        <block type="variables_set">
+          <field name="VAR">Party_B_Turnover</field>
+          <value name="VALUE">
+            <block type="lists_create_with" inline="true">
+              <mutation items="3"></mutation>
+              <value name="ADD0">
+                <block type="math_number">
+                  <field name="NUM">15</field>
+                </block>
+              </value>
+              <value name="ADD1">
+                <block type="math_number">
+                  <field name="NUM">25</field>
+                </block>
+              </value>
+              <value name="ADD2">
+                <block type="math_number">
+                  <field name="NUM">35</field>
+                </block>
+              </value>
+            </block>
+          </value>
+        </block>
       </category>
     </category>
   </xml>
