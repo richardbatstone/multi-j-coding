@@ -539,10 +539,360 @@
     </category>
   </xml>
 
+  <xml xmlns="https://developers.google.com/blockly/xml" id="startBlocks" style="display: none">
+    <variables>
+      <variable id="}7b2T@6XJbVB+O98k+0)">T_Estonia_A</variable>
+      <variable id="x/tL|V3qU|ID9k_R9!,m">Party_A</variable>
+      <variable id="}IF5?c.4w_2#9bxOenPv">Party_B</variable>
+      <variable id="YG~J70dub=yN#fxVmGXV">T_Estonia_B</variable>
+      <variable id="Sw=WR_-B;)E3#cOl~^qi">Num_Parties_with_2M_Estonia</variable>
+      <variable id="IPiZkk%-53(g+?vj(L~]">Limb2Met</variable>
+      <variable id="[sv%-Q1Cb(AD,BR*_Ozt">Limb1Met</variable>
+      <variable id=",*y}{GWm}T5t!BG6T+^S">TestMet</variable>
+    </variables>
+    <block type="variables_set" id="}dM=TF:vwBZ@QWO3tGRF" x="0" y="0">
+      <field name="VAR" id="}7b2T@6XJbVB+O98k+0)">T_Estonia_A</field>
+      <value name="VALUE">
+        <block type="math_number" id="ro]Bb.%Q,UmHoFTi7^FS">
+          <field name="NUM">10000000</field>
+        </block>
+      </value>
+      <next>
+        <block type="variables_set" id="I66qeZ-0-KA00=t`Y5OU">
+          <field name="VAR" id="YG~J70dub=yN#fxVmGXV">T_Estonia_B</field>
+          <value name="VALUE">
+            <block type="math_number" id="H~v0k^`x0U[l6z26%KbN">
+              <field name="NUM">15000000</field>
+            </block>
+          </value>
+        </block>
+      </next>
+    </block>
+    <block type="procedures_defreturn" id="uihXPvSa+cUA-o_B^iK;" x="0" y="82">
+      <mutation>
+        <arg name="Party_A" varid="x/tL|V3qU|ID9k_R9!,m"></arg>
+        <arg name="Party_B" varid="}IF5?c.4w_2#9bxOenPv"></arg>
+      </mutation>
+      <field name="NAME">getNumPartieswith2MEstonia</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="variables_set" id="W)_[p@_B!#PE#mxT%feQ">
+          <field name="VAR" id="Sw=WR_-B;)E3#cOl~^qi">Num_Parties_with_2M_Estonia</field>
+          <value name="VALUE">
+            <block type="math_number" id="9T_J;OZ_bIx?Gon18/jb">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+          <next>
+            <block type="controls_if" id="d:%BE)HvY*0!LT@@b,.:">
+              <value name="IF0">
+                <block type="logic_compare" id="@$iL9H]AV!m}+K3/u4}7">
+                  <field name="OP">GTE</field>
+                  <value name="A">
+                    <block type="variables_get" id="~rQe-,c(xP580!oP;`?:">
+                      <field name="VAR" id="x/tL|V3qU|ID9k_R9!,m">Party_A</field>
+                    </block>
+                  </value>
+                  <value name="B">
+                    <block type="math_number" id="F/JSTweR-]P9Mt1,6@-B">
+                      <field name="NUM">2000000</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+              <statement name="DO0">
+                <block type="math_change" id="TuIZ(z.?7af7ni88Fy[W">
+                  <field name="VAR" id="Sw=WR_-B;)E3#cOl~^qi">Num_Parties_with_2M_Estonia</field>
+                  <value name="DELTA">
+                    <shadow type="math_number" id="{NV#-uAWjd})hd?6mIXv">
+                      <field name="NUM">1</field>
+                    </shadow>
+                  </value>
+                </block>
+              </statement>
+              <next>
+                <block type="controls_if" id="Qkj$3U;loa/:B7S%^X#5">
+                  <value name="IF0">
+                    <block type="logic_compare" id="ZO6QhSW1[^Zk3Z-AE9Dz">
+                      <field name="OP">GTE</field>
+                      <value name="A">
+                        <block type="variables_get" id="X|7c-FG,65ZvjOB2kd@c">
+                          <field name="VAR" id="}IF5?c.4w_2#9bxOenPv">Party_B</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="math_number" id="$~uE}G:Qmswq;0mV~].0">
+                          <field name="NUM">2000000</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="math_change" id="|$OtHUq]*ZUg.:[vi68V">
+                      <field name="VAR" id="Sw=WR_-B;)E3#cOl~^qi">Num_Parties_with_2M_Estonia</field>
+                      <value name="DELTA">
+                        <shadow type="math_number" id="+7:2rQa^H*tj4KyWRf{I">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </statement>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <value name="RETURN">
+        <block type="variables_get" id="wQULh/!6AI,_H]1;ol0l">
+          <field name="VAR" id="Sw=WR_-B;)E3#cOl~^qi">Num_Parties_with_2M_Estonia</field>
+        </block>
+      </value>
+    </block>
+    <block type="procedures_defreturn" id="/r``u+]gFuwnb#8ZE=5%" x="0" y="351">
+      <mutation>
+        <arg name="Party_A" varid="x/tL|V3qU|ID9k_R9!,m"></arg>
+        <arg name="Party_B" varid="}IF5?c.4w_2#9bxOenPv"></arg>
+      </mutation>
+      <field name="NAME">EstoniaLimb1</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="controls_if" id="5Hl[|ldLApJCQC:8%%jH">
+          <mutation else="1"></mutation>
+          <value name="IF0">
+            <block type="logic_compare" id="bAr6@~j(9:tG=mex0q5^">
+              <field name="OP">GT</field>
+              <value name="A">
+                <block type="math_arithmetic" id="i|dr?O6bTTG--yb7e*hM">
+                  <field name="OP">ADD</field>
+                  <value name="A">
+                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="oL4.H_gae~4f--X1Qw{P">
+                      <field name="NUM">1</field>
+                    </shadow>
+                    <block type="variables_get" id="NGB6!#WK0MM0NA9h`W@t">
+                      <field name="VAR" id="x/tL|V3qU|ID9k_R9!,m">Party_A</field>
+                    </block>
+                  </value>
+                  <value name="B">
+                    <shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number" id="e{z2i0bINMgpoIDJQLLj">
+                      <field name="NUM">1</field>
+                    </shadow>
+                    <block type="variables_get" id="]Ou)]g@!,jcNMCEDyp3)">
+                      <field name="VAR" id="}IF5?c.4w_2#9bxOenPv">Party_B</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+              <value name="B">
+                <block type="math_number" id="p3z(_A|0IxpO3brYEPxc">
+                  <field name="NUM">6000000</field>
+                </block>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="variables_set" id="Z$b4:0M1nU#V*O8Dbv%L">
+              <field name="VAR" id="IPiZkk%-53(g+?vj(L~]">Limb2Met</field>
+              <value name="VALUE">
+                <block type="logic_boolean" id="7Sc,NU(|z@%xWT:(11DW">
+                  <field name="BOOL">TRUE</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+          <statement name="ELSE">
+            <block type="variables_set" id="/qPQZ(9EDj~:f_c-U#,F">
+              <field name="VAR" id="IPiZkk%-53(g+?vj(L~]">Limb2Met</field>
+              <value name="VALUE">
+                <block type="logic_boolean" id="~,?kawh,H#LiHs:O*oU:">
+                  <field name="BOOL">FALSE</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </statement>
+      <value name="RETURN">
+        <block type="variables_get" id="l:GoQzG3OO=/3B#z^Ip~">
+          <field name="VAR" id="IPiZkk%-53(g+?vj(L~]">Limb2Met</field>
+        </block>
+      </value>
+    </block>
+    <block type="procedures_defreturn" id=":9vz@aCj@e1?S=ccYL`e" x="0" y="566">
+      <mutation>
+        <arg name="Party_A" varid="x/tL|V3qU|ID9k_R9!,m"></arg>
+        <arg name="Party_B" varid="}IF5?c.4w_2#9bxOenPv"></arg>
+      </mutation>
+      <field name="NAME">EstoniaLimb2</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="controls_if" id="rOi6Ve)6h{hwF.z{fjDU">
+          <mutation else="1"></mutation>
+          <value name="IF0">
+            <block type="logic_compare" id="JtHK=;hho1VyaWlJsW?o">
+              <field name="OP">GTE</field>
+              <value name="A">
+                <block type="procedures_callreturn" id="}p331ZLK);AD.(=t(4YD">
+                  <mutation name="getNumPartieswith2MEstonia">
+                    <arg name="Party_A"></arg>
+                    <arg name="Party_B"></arg>
+                  </mutation>
+                  <value name="ARG0">
+                    <block type="variables_get" id="HChu-+hSD{jO2M`t[qE)">
+                      <field name="VAR" id="x/tL|V3qU|ID9k_R9!,m">Party_A</field>
+                    </block>
+                  </value>
+                  <value name="ARG1">
+                    <block type="variables_get" id=":}RsVQ8=H52Gb}sRk4~2">
+                      <field name="VAR" id="}IF5?c.4w_2#9bxOenPv">Party_B</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+              <value name="B">
+                <block type="math_number" id="P)k?)GzleTk!EG,~K1tp">
+                  <field name="NUM">2</field>
+                </block>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="variables_set" id="YcS|5p62Y$2mmCU)Qu@B">
+              <field name="VAR" id="[sv%-Q1Cb(AD,BR*_Ozt">Limb1Met</field>
+              <value name="VALUE">
+                <block type="logic_boolean" id="AY5vxX:upf5]})JF:H=X">
+                  <field name="BOOL">TRUE</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+          <statement name="ELSE">
+            <block type="variables_set" id="gSR-G?Fn.tWq*M-Qz~y.">
+              <field name="VAR" id="[sv%-Q1Cb(AD,BR*_Ozt">Limb1Met</field>
+              <value name="VALUE">
+                <block type="logic_boolean" id="U|rq}GX1iv=C7N^U5a~1">
+                  <field name="BOOL">FALSE</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </statement>
+      <value name="RETURN">
+        <block type="variables_get" id="6pB^e~J7$/x?sm^vG*ck">
+          <field name="VAR" id="[sv%-Q1Cb(AD,BR*_Ozt">Limb1Met</field>
+        </block>
+      </value>
+    </block>
+    <block type="procedures_defreturn" id="89I@;Gt;#d}{D@4Iz:2u" x="0" y="824">
+      <mutation>
+        <arg name="Party_A" varid="x/tL|V3qU|ID9k_R9!,m"></arg>
+        <arg name="Party_B" varid="}IF5?c.4w_2#9bxOenPv"></arg>
+      </mutation>
+      <field name="NAME">EstoniaTest</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="controls_if" id="`vSYP]$OGThlB32_.z:4">
+          <mutation else="1"></mutation>
+          <value name="IF0">
+            <block type="logic_operation" id="n$]m3=:zRQZvUg,o@IR3">
+              <field name="OP">AND</field>
+              <value name="A">
+                <block type="procedures_callreturn" id="mb?bQuWHVKvXW|u0|G_H" inline="false">
+                  <mutation name="EstoniaLimb1">
+                    <arg name="Party_A"></arg>
+                    <arg name="Party_B"></arg>
+                  </mutation>
+                  <value name="ARG0">
+                    <block type="variables_get" id="`.Q_hBJ:sIW`B|1s+4OP">
+                      <field name="VAR" id="x/tL|V3qU|ID9k_R9!,m">Party_A</field>
+                    </block>
+                  </value>
+                  <value name="ARG1">
+                    <block type="variables_get" id="*rbRw=~K{$u8O3(^()4_">
+                      <field name="VAR" id="}IF5?c.4w_2#9bxOenPv">Party_B</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+              <value name="B">
+                <block type="procedures_callreturn" id="C=Hf.i[}0lq|Tn.r;97W">
+                  <mutation name="EstoniaLimb2">
+                    <arg name="Party_A"></arg>
+                    <arg name="Party_B"></arg>
+                  </mutation>
+                  <value name="ARG0">
+                    <block type="variables_get" id="}]sEya(!7X~,K(+Ks@ow">
+                      <field name="VAR" id="x/tL|V3qU|ID9k_R9!,m">Party_A</field>
+                    </block>
+                  </value>
+                  <value name="ARG1">
+                    <block type="variables_get" id="9+lnOyF{*zq%ReHI=i%m">
+                      <field name="VAR" id="}IF5?c.4w_2#9bxOenPv">Party_B</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="variables_set" id="M1RCI@Y+8H_f3CP]=Gqx">
+              <field name="VAR" id=",*y}{GWm}T5t!BG6T+^S">TestMet</field>
+              <value name="VALUE">
+                <block type="text" id="!vA[pR#/83$=Rg@xFQ8U">
+                  <field name="TEXT">Test Met</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+          <statement name="ELSE">
+            <block type="variables_set" id="wgn}6Q7/LZ!xrOK*#vmw">
+              <field name="VAR" id=",*y}{GWm}T5t!BG6T+^S">TestMet</field>
+              <value name="VALUE">
+                <block type="text" id="lmC=E0hIT{hGt6PcmK,K">
+                  <field name="TEXT">Test Not Met</field>
+                </block>
+              </value>
+            </block>
+          </statement>
+        </block>
+      </statement>
+      <value name="RETURN">
+        <block type="variables_get" id="wc|$Juf81=Z~U_ax^Foz">
+          <field name="VAR" id=",*y}{GWm}T5t!BG6T+^S">TestMet</field>
+        </block>
+      </value>
+    </block>
+    <block type="text_print" id="=8dW`57_Z/-Wr*0-xCk]" x="0" y="1082">
+      <value name="TEXT">
+        <shadow xmlns="http://www.w3.org/1999/xhtml" type="text" id="dc@KqR2(o}]t-0]uzC6_">
+          <field name="TEXT">abc</field>
+        </shadow>
+        <block type="procedures_callreturn" id="7mj:f)O}*~TA8#5n_n9W">
+          <mutation name="EstoniaTest">
+            <arg name="Party_A"></arg>
+            <arg name="Party_B"></arg>
+          </mutation>
+          <value name="ARG0">
+            <block type="variables_get" id="UExasp|VpKt/{aqGapA6">
+              <field name="VAR" id="}7b2T@6XJbVB+O98k+0)">T_Estonia_A</field>
+            </block>
+          </value>
+          <value name="ARG1">
+            <block type="variables_get" id="N!/E$k_0|R[?VP8_md~9">
+              <field name="VAR" id="YG~J70dub=yN#fxVmGXV">T_Estonia_B</field>
+            </block>
+          </value>
+        </block>
+      </value>
+    </block>  
+  </xml>
+
   <script>
     var workspace = Blockly.inject('blocklyDiv',
         {media: './media/',
          toolbox: document.getElementById('toolbox')});
+    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),workspace)
     function myUpdateFunction(event) {
       var languageDropdown = document.getElementById('languageDropdown');
       var languageSelection = languageDropdown.options[languageDropdown.selectedIndex].value;
